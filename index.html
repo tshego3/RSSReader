@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="js/jquery-3.6.0.js"></script>
+
+    <title>RSS Reader</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">RSS Reader</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">HYPEBEAST</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tech Crunch</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">WIRED</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            ESPN
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row" id="rss-content" style="padding: 56px"></div>
+    </div>
+
+    <script>
+        const RSS_URL = `https://www.espn.com/espn/rss/rpm/news`;
+
+        $.ajax(RSS_URL, {
+            accepts: {
+                xml: "application/rss+xml"
+            },
+
+            dataType: "xml",
+
+            success: function (data) {
+                $(data)
+                    .find("item")
+                    .each(function () {
+                        const el = $(this);
+
+                        const template = `
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="${el.find("image").text()}" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${el.find("title").text()}</h5>
+                                        <p class="card-text">${el.find("description").text()}</p>
+                                        <a href="${el.find("link").text()}" class="btn btn-primary">View Article</a>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+
+                        document.getElementById("rss-content").insertAdjacentHTML("beforeend", template);
+                    });
+            }
+        });
+    </script>
+
+    <!-- Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
