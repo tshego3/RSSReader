@@ -1,0 +1,25 @@
+html, body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    color: #fff;
+    background-color: rgb(25, 25, 25);
+    background-position: center;
+    overflow-y: visible !important;
+    overflow-x: hidden;
+}
+
+.navbar-brand {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+#navbar {
+    background-color: #000;
+}
+
+.space {
+    padding-top: 88px;
+}
+
+.card-body {
+    background-color: rgb(35, 35, 35);
+}
