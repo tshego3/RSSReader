@@ -78,8 +78,6 @@
         $.ajax({
             url: 'https://techcrunch.com/feed/',
             type: 'GET',
-            headers: { 'Access-Control-Allow-Origin': '*' },
-            crossDomain: true,
             dataType: "xml",
             success: function (data) {
                 $(data)
