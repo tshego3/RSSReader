@@ -76,10 +76,11 @@
 
     <script>
         $.ajax({
+            url: 'https://techcrunch.com/feed/',
             type: 'GET',
-            url: 'https://www.espn.com/espn/rss/rpm/news',
-            dataType: "xml",
+            headers: { 'Access-Control-Allow-Origin': '*' },
             crossDomain: true,
+            dataType: "xml",
             success: function (data) {
                 $(data)
                     .find("item")
@@ -87,7 +88,7 @@
                         const el = $(this);
                         const template = `
                                     <div class="col">
-                                        <div class="card" style="width: 24rem;">
+                                        <div class="card" style="width: 18rem;">
                                             <img src="${el.find("image").text()}" class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">${el.find("title").text()}</h5>
