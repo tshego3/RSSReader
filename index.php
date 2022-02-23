@@ -19,7 +19,7 @@
 <body>
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><strong>RSS Reader</strong></a>
+            <a class="navbar-brand" href="/index.php"><strong>RSS Reader</strong></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,7 +29,7 @@
                         <a class="nav-link active" aria-current="page" href="#">TechCrunch</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">HYPEBEAST</a>
+                        <a class="nav-link" href="/pages/hypebeast.php">HYPEBEAST</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">News24 Top Stories</a>
@@ -71,36 +71,46 @@
     <div class="space"></div>
 
     <div class="container">
-        <div class="row" id="rss-row"></div>
+        <div class="row">
+            <?php
+                //Feed URLs
+                $feeds = array(
+                    "https://techcrunch.com/feed/"
+                );
+                
+                //Read each feed's items
+                $entries = array();
+                foreach($feeds as $feed) {
+                    $xml = simplexml_load_file($feed);
+                    $entries = array_merge($entries, $xml->xpath("//item"));
+                }
+                
+                //Sort feed entries by pubDate
+                usort($entries, function ($feed1, $feed2) {
+                    return strtotime($feed2->pubDate) - strtotime($feed1->pubDate);
+                });
+                
+            ?>
+            
+            <?php
+                //Print all the entries
+                foreach($entries as $entry){
+            ?>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="<?= $entry->image ?>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $entry->title ?></h5>
+                            <p class="card-text"><?= $entry->description ?></p>
+                            <a href="<?= $entry->link ?>" class="btn btn-primary">View Article</a>
+                        </div>
+                    </div>
+                </div>
+            <?php
+                }
+            ?>
+        </div>
     </div>
-
-    <script>
-        $.ajax({
-            url: 'https://www.espn.com/espn/rss/rpm/news',
-            type: 'GET',
-            dataType: "xml",
-            success: function (data) {
-                $(data)
-                    .find("item")
-                    .each(function () {
-                        const el = $(this);
-                        const template = `
-                                    <div class="col">
-                                        <div class="card" style="width: 18rem;">
-                                            <img src="${el.find("image").text()}" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">${el.find("title").text()}</h5>
-                                                <p class="card-text">${el.find("description").text()}</p>
-                                                <a href="${el.find("link").text()}" class="btn btn-primary">View Article</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    `;
-                        document.getElementById("rss-row").insertAdjacentHTML("beforeend", template);
-                    });
-            }
-        });
-    </script>
 
     <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: Bootstrap Bundle with Popper -->

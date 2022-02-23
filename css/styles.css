@@ -23,3 +23,7 @@ html, body {
 .card-body {
     background-color: rgb(35, 35, 35);
 }
+p img{
+    width: 286px !important;
+    height: 180px !important;
+}
