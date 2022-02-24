@@ -11,9 +11,6 @@
     <!-- Styles CSS -->
     <link href="/css/styles.css" rel="stylesheet">
 
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
     <title>RSS Reader</title>
 </head>
 <body>
@@ -32,26 +29,26 @@
                         <a class="nav-link active" aria-current="page" href="#">HYPEBEAST</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">News24 Top Stories</a>
+                        <a class="nav-link" href="/pages/news24.php">News24 Top Stories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">The Hacker News</a>
+                        <a class="nav-link" href="/pages/thehackernews.php">The Hacker News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ProtonMail Blog</a>
+                        <a class="nav-link" href="/pages/protonmail.php">ProtonMail Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">WIRED</a>
+                        <a class="nav-link" href="/pages/wired.php">WIRED</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Sports
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">ESPN - RPM</a></li>
-                            <li><a class="dropdown-item" href="#">ESPN - SOCCER</a></li>
-                            <li><a class="dropdown-item" href="#">UFC News</a></li>
-                            <li><a class="dropdown-item" href="#">WRC News</a></li>
+                            <li><a class="dropdown-item" href="/pages/espnrpm.php">ESPN - RPM</a></li>
+                            <li><a class="dropdown-item" href="/pages/espnsoccer.php">ESPN - SOCCER</a></li>
+                            <li><a class="dropdown-item" href="/pages/ufcnews.php">UFC News</a></li>
+                            <li><a class="dropdown-item" href="/pages/wrcnews.php">WRC News</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -59,8 +56,8 @@
                             Science
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">DistroWatch.com</a></li>
-                            <li><a class="dropdown-item" href="#">NASA Breaking News</a></li>
+                            <li><a class="dropdown-item" href="/pages/distrowatch.php">DistroWatch.com</a></li>
+                            <li><a class="dropdown-item" href="/pages/nasa.php">NASA Breaking News</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -75,7 +72,7 @@
             <?php
                 //Feed URLs
                 $feeds = array(
-                    "http://feeds.feedburner.com/hypebeast/feed"
+                    "http://feeds.feedburner.com/hypebeast/feed/"
                 );
                 
                 //Read each feed's items
@@ -97,13 +94,8 @@
                 foreach($entries as $entry){
             ?>
                 <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $entry->title ?></h5>
-                            <p class="card-text"><?= $entry->description ?></p>
-                            <a href="<?= $entry->link ?>" class="btn btn-primary">View Article</a>
-                        </div>
-                    </div>
+                    <h5><strong><?= $entry->title ?></strong></h5>
+                    <p><?= $entry->description ?></p>
                 </div>
             <?php
                 }

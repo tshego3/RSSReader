@@ -20,10 +20,40 @@ html, body {
     padding-top: 88px;
 }
 
-.card-body {
-    background-color: rgb(35, 35, 35);
+.col div {
+    text-align: left !important;
 }
-p img{
-    width: 286px !important;
-    height: 180px !important;
+
+p img {
+    width: 30vw !important;
+    height: auto !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rss-img {
+    width: 30vw !important;
+    height: auto !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 992px) and (max-height: 992px) {
+    p img {
+        width: 90vw !important;
+        height: auto !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .rss-img {
+        width: 90vw !important;
+        height: auto !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

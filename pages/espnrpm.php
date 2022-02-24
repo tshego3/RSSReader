@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/index.php">TechCrunch</a>
+                        <a class="nav-link" href="/index.php">TechCrunch</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/pages/hypebeast.php">HYPEBEAST</a>
@@ -41,7 +41,7 @@
                         <a class="nav-link" href="/pages/wired.php">WIRED</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle active" aria-current="page" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Sports
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -72,7 +72,7 @@
             <?php
                 //Feed URLs
                 $feeds = array(
-                    "https://techcrunch.com/feed/"
+                    "https://www.espn.com/espn/rss/rpm/news/"
                 );
                 
                 //Read each feed's items
@@ -95,7 +95,8 @@
             ?>
                 <div class="col">
                     <h5><strong><?= $entry->title ?></strong></h5>
-                    <p><?= $entry->children('content', true)->encoded ?></p>
+                    <img src="<?= $entry->image ?>" class="rss-img" alt="...">
+                    <p><?= $entry->description ?></p>
                 </div>
             <?php
                 }
