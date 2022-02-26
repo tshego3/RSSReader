@@ -26,7 +26,7 @@
                         <a class="nav-link" href="/index.php">TechCrunch</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/pages/hypebeast.php">HYPEBEAST</a>
+                        <a class="nav-link" href="/pages/hypebeast.php">HYPEBEAST</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/pages/news24.php">News24 Top Stories</a>
@@ -41,7 +41,7 @@
                         <a class="nav-link" href="/pages/wired.php">WIRED</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle active" aria-current="page" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Sports
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -73,7 +73,7 @@
             <?php
                 //Feed URLs
                 $feeds = array(
-                    "http://feeds.feedburner.com/hypebeast/feed/"
+                    "https://www.ufc.com/rss/news/"
                 );
                 
                 //Read each feed's items
@@ -96,7 +96,8 @@
             ?>
                 <div class="col">
                     <h5><a href="<?= $entry->link ?>"><strong><?= $entry->title ?></strong></a></h5>
-                    <p><?= $entry->description ?></p>
+                    <img src="<?= $entry->enclosure['url'] ?>" class="rss-img" onerror="this.onerror=null; this.src='/assets/imgs/card-image.svg'" alt="...">
+                    <p><?= $entry->children('content', true)->encoded ?></p>
                 </div>
             <?php
                 }

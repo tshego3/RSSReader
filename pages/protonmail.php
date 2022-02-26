@@ -26,7 +26,7 @@
                         <a class="nav-link" href="/index.php">TechCrunch</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/pages/hypebeast.php">HYPEBEAST</a>
+                        <a class="nav-link" href="/pages/hypebeast.php">HYPEBEAST</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/pages/news24.php">News24 Top Stories</a>
@@ -35,7 +35,7 @@
                         <a class="nav-link" href="/pages/thehackernews.php">The Hacker News</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/pages/protonmail.php">ProtonMail Blog</a>
+                        <a class="nav-link active" aria-current="page" href="/pages/protonmail.php">ProtonMail Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/pages/wired.php">WIRED</a>
@@ -73,7 +73,7 @@
             <?php
                 //Feed URLs
                 $feeds = array(
-                    "http://feeds.feedburner.com/hypebeast/feed/"
+                    "https://protonmail.com/blog/feed/"
                 );
                 
                 //Read each feed's items
@@ -96,6 +96,7 @@
             ?>
                 <div class="col">
                     <h5><a href="<?= $entry->link ?>"><strong><?= $entry->title ?></strong></a></h5>
+                    <img src="<?= $entry->image ?>" class="rss-img" onerror="this.onerror=null; this.src='/assets/imgs/card-image.svg'" alt="...">
                     <p><?= $entry->description ?></p>
                 </div>
             <?php

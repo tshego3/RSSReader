@@ -16,11 +16,16 @@ html, body {
     background-color: #000;
 }
 
-.space {
-    padding-top: 88px;
+h5 a {
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
-.col div {
+.space {
+    padding-top: 70px;
+}
+
+.col p {
     text-align: left !important;
 }
 

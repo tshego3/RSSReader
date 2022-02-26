@@ -45,10 +45,10 @@
                             Sports
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/pages/espnrpm.php">ESPN - RPM</a></li>
-                            <li><a class="dropdown-item" href="/pages/espnsoccer.php">ESPN - SOCCER</a></li>
-                            <li><a class="dropdown-item" href="/pages/ufcnews.php">UFC News</a></li>
-                            <li><a class="dropdown-item" href="/pages/wrcnews.php">WRC News</a></li>
+                            <li><a class="dropdown-item" href="/pages/sports/espnrpm.php">ESPN - RPM</a></li>
+                            <li><a class="dropdown-item" href="/pages/sports/espnsoccer.php">ESPN - SOCCER</a></li>
+                            <li><a class="dropdown-item" href="/pages/sports/ufcnews.php">UFC News</a></li>
+                            <li><a class="dropdown-item" href="/pages/sports/wrcnews.php">WRC News</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -56,8 +56,9 @@
                             Science
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/pages/distrowatch.php">DistroWatch.com</a></li>
-                            <li><a class="dropdown-item" href="/pages/nasa.php">NASA Breaking News</a></li>
+                            <li><a class="dropdown-item" href="/pages/science/distrowatch.php">DistroWatch.com</a></li>
+                            <li><a class="dropdown-item" href="/pages/science/nasa.php">NASA Breaking News</a></li>
+                            <li><a class="dropdown-item" href="/pages/science/nasa-day-image.php">NASA Image of the Day</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -94,8 +95,8 @@
                 foreach($entries as $entry){
             ?>
                 <div class="col">
-                    <h5><strong><?= $entry->title ?></strong></h5>
-                    <img src="<?= $entry->image ?>" class="rss-img" alt="...">
+                    <h5><a href="<?= $entry->link ?>"><strong><?= $entry->title ?></strong></a></h5>
+                    <img src="<?= $entry->image ?>" class="rss-img" onerror="this.onerror=null; this.src='/assets/imgs/card-image.svg'" alt="...">
                     <p><?= $entry->description ?></p>
                 </div>
             <?php
