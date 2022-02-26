@@ -29,6 +29,10 @@ h5 a {
     text-align: left !important;
 }
 
+div a img {
+    display: none !important;
+}
+
 p img {
     width: 30vw !important;
     height: auto !important;
