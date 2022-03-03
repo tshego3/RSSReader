@@ -33,6 +33,10 @@ div a img {
     display: none !important;
 }
 
+.disclaimer {
+    display: none !important;
+}
+
 p img {
     width: 30vw !important;
     height: auto !important;
