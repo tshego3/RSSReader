@@ -53,6 +53,17 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Runtastic
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/pages/runtastic/cardio.php">Cardio</a></li>
+                            <li><a class="dropdown-item" href="/pages/runtastic/strength.php">Strength</a></li>
+                            <li><a class="dropdown-item" href="/pages/runtastic/nutrition.php">Nutrition</a></li>
+                            <li><a class="dropdown-item" href="/pages/runtastic/daily-habits.php">Daily Habits</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Science
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

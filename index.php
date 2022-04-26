@@ -53,6 +53,17 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Runtastic
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="/pages/runtastic/cardio.php">Cardio</a></li>
+                            <li><a class="dropdown-item" href="/pages/runtastic/strength.php">Strength</a></li>
+                            <li><a class="dropdown-item" href="/pages/runtastic/nutrition.php">Nutrition</a></li>
+                            <li><a class="dropdown-item" href="/pages/runtastic/daily-habits.php">Daily Habits</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Science
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -96,7 +107,7 @@
             ?>
                 <div class="col">
                     <h5><a href="<?= $entry->link ?>"><strong><?= $entry->title ?></strong></a></h5>
-                    <img src="<?= $entry->image ?>" class="rss-img" onerror="this.onerror=null; this.src='/assets/imgs/card-image.svg'" alt="...">
+                    <img src="<?= $entry->enclosure['url'] ?>" class="rss-img" onerror="this.onerror=null; this.src='/assets/imgs/card-image.svg'" alt="...">
                     <p><?= $entry->description ?></p>
                 </div>
             <?php
